@@ -1,0 +1,27 @@
+Copyright (c) 2025 WoodEXPLOSIVE
+
+Deutsch:
+
+Diese Software ist urheberrechtlich geschützt.
+Es ist ausdrücklich verboten:
+-Den Code oder die Dateien zu verändern, zu bearbeiten oder abgeleitete Werke zu erstellen.
+-Die Software oder veränderte Versionen zu verbreiten, hochzuladen oder zu verkaufen.
+-Teile des Codes in anderen Projekten zu verwenden.
+-Diese Software ganz oder teilweise als eigenes Werk oder als Werk einer anderen Person auszugeben.
+
+Erlaubt ist nur:
+-Die Software in unveränderter Form zu nutzen.
+-Die Software darf nur in unveränderter Form weitergegeben werden und muss dabei diese Lizenz beibehalten.
+
+English:
+
+This software is protected by copyright.
+The following are explicitly prohibited:
+-Modifying, editing, or creating derivative works of the code or files.
+-Distributing, uploading, or selling the software or any modified versions.
+-Using parts of the code in other projects.
+-Presenting this software, in whole or in part, as your own work or as the work of another person.
+
+The following are allowed only:
+-Using the software in its unmodified form.
+-Redistributing the software only in its unmodified form, while retaining this license.

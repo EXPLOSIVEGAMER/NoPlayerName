@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "noplayername",
+  "version": "${version}",
+  "name": "noPlayerName",
+  "description": "Hides Player Names!",
+  "authors": ["WoodEXPLOSIVE"],
+  "contact": {},
+  "license": "LICENSE.txt",
+  "icon": "assets/noplayername/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "at.woodexplosive.noplayername.client.NoplayernameDataGenerator"
+    ],
+    "client": [
+      "at.woodexplosive.noplayername.client.NoplayernameClient"
+    ],
+    "main": [
+      "at.woodexplosive.noplayername.Noplayername"
+    ]
+  },
+  "mixins": [
+    "noplayername.mixins.json",
+    {
+      "config": "noplayername.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
