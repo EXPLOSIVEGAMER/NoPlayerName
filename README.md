@@ -1,5 +1,5 @@
 # NoPlayerName
-Repository for NoPlayerName Mod
+Repository for NoPlayerName Mod on Modrinth
 
 This Mod allows you to hide Player Name Tags with the configured key (default: N).
 
