@@ -1,4 +1,7 @@
 {
   "key.noplayername.toggle": "Spieler Namen umschalten",
-  "category.noplayername": "NoPlayerName"
+  "key.category.noplayername.options": "NoPlayerName",
+  "noplayername.message": "[NoPlayerName] Spieler Namen: %s",
+  "noplayername.message.on": "AN",
+  "noplayername.message.off": "AUS"
 }

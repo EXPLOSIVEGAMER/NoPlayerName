@@ -4,7 +4,7 @@
   "package": "at.woodexplosive.noplayername.client.Mixins",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "EntityRendererMixin"
+    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

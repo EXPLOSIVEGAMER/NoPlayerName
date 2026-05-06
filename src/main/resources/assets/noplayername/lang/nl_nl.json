@@ -1,4 +1,7 @@
 {
   "key.noplayername.toggle": "Speler namens omschakelen",
-  "category.noplayername": "NoPlayerName"
+  "key.category.noplayername.options": "NoPlayerName",
+  "noplayername.message": "[NoPlayerName] Spelernamens: %s",
+  "noplayername.message.on": "AAN",
+  "noplayername.message.off": "UIT"
 }
