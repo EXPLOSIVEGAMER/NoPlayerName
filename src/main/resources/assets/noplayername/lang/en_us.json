@@ -1,0 +1,7 @@
+{
+  "key.noplayername.toggle": "Toggle Player Names",
+  "category.noplayername": "NoPlayerName",
+  "noplayername.message": "[NoPlayerName] Player names: %s",
+  "noplayername.message.on": "ON",
+  "noplayername.message.off": "OFF"
+}
