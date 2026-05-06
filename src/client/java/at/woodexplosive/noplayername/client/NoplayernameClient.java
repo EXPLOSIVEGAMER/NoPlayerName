@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
@@ -22,7 +23,11 @@ public class NoplayernameClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (toggleKey.wasPressed()) {
                 NoPlayerNameConfig.hideNametags = !NoPlayerNameConfig.hideNametags;
-                client.player.sendMessage(Text.of("Nametags verstecken: " + (NoPlayerNameConfig.hideNametags ? "AN" : "AUS")), false);
+                MutableText state = NoPlayerNameConfig.hideNametags ? Text.translatable("noplayername.message.off") : Text.translatable("noplayername.message.on");
+
+                if (client.player != null) {
+                    client.player.sendMessage(Text.translatable("noplayername.message", state), false);
+                }
             }
         });
     }
