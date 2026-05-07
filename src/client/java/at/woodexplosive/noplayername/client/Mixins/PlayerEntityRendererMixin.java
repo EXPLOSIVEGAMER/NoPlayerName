@@ -16,7 +16,7 @@ public abstract class PlayerEntityRendererMixin {
 
     @Inject(method = "renderLabelIfPresent*", at = @At("HEAD"), cancellable = true)
     private void hidePlayerNames(PlayerEntityRenderState state, MatrixStack matrices, OrderedRenderCommandQueue queue, CameraRenderState cameraRenderState, CallbackInfo ci) {
-        if (NoPlayerNameConfig.hideNametags) {
+        if (NoPlayerNameConfig.HIDE_NAME_TAGS) {
             ci.cancel();
         }
     }

@@ -1,5 +1,6 @@
 {
   "key.noplayername.toggle": "Spieler Namen umschalten",
+  "key.noplayername.take_screenshot": "Screenshot aufnehmen",
   "key.category.noplayername.options": "NoPlayerName",
   "noplayername.message": "[NoPlayerName] Spieler Namen: %s",
   "noplayername.message.on": "AN",
