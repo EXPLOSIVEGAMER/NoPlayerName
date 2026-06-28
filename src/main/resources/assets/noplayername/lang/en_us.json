@@ -1,0 +1,8 @@
+{
+  "key.noplayername.toggle": "Toggle Player Names",
+  "key.noplayername.take_screenshot": "Take Screenshot",
+  "key.category.noplayername.options": "NoPlayerName",
+  "noplayername.message": "[NoPlayerName] Player names: %s",
+  "noplayername.message.on": "ON",
+  "noplayername.message.off": "OFF"
+}
