@@ -56,8 +56,8 @@ public class NoplayernameClient implements ClientModInitializer {
 
                 Screenshot.grab(
                         client.gameDirectory,
-                        client.gameRenderer.mainRenderTarget(),
-                        message -> client.execute(() -> client.showDebugChat(message))
+                        client.getMainRenderTarget(),
+                        message -> client.execute(() -> client.gui.getChat().addClientSystemMessage(message))
                 );
 
                 NoPlayerNameConfig.hideNametags = orignalHideState;
