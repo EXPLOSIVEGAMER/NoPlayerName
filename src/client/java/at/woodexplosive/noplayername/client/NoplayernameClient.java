@@ -1,5 +1,6 @@
 package at.woodexplosive.noplayername.client;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.platform.InputConstants.Type;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -44,7 +45,7 @@ public class NoplayernameClient implements ClientModInitializer {
     }
 
     static {
-        toggleKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.noplayername.toggle", Type.KEYSYM, 78, CATEGORY));
-        screenShotKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.noplayername.take_screenshot", Type.KEYSYM, 299, CATEGORY));
+        toggleKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.noplayername.toggle", Type.KEYBOARD, InputConstants.KEY_N, CATEGORY));
+        screenShotKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.noplayername.take_screenshot", Type.KEYBOARD, InputConstants.KEY_F10, CATEGORY));
     }
 }
