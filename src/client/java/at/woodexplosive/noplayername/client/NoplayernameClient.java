@@ -1,38 +1,50 @@
 package at.woodexplosive.noplayername.client;
 
-import at.woodexplosive.noplayername.Noplayername;
+import com.mojang.blaze3d.platform.InputConstants.Type;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import org.lwjgl.glfw.GLFW;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Screenshot;
+import net.minecraft.client.KeyMapping.Category;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 
 public class NoplayernameClient implements ClientModInitializer {
-    private static final KeyBinding.Category CATEGORY =
-            KeyBinding.Category.create(Identifier.of(Noplayername.MOD_ID, "options"));
+    private static final KeyMapping.Category CATEGORY = Category.register(Identifier.fromNamespaceAndPath("noplayername", "options"));
+    private boolean orignalHideState;
+    private boolean isScreenshotScheduled = false;
+    private static final KeyMapping toggleKey;
+    private static final KeyMapping screenShotKey;
 
-    private static final KeyBinding toggleKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-            "key.noplayername.toggle",
-            InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_N,
-            CATEGORY
-    ));
+    public NoplayernameClient() {
+    }
 
-    @Override
     public void onInitializeClient() {
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (toggleKey.wasPressed()) {
+        ClientTickEvents.END_CLIENT_TICK.register((client) -> {
+            if (toggleKey.consumeClick()) {
                 NoPlayerNameConfig.hideNametags = !NoPlayerNameConfig.hideNametags;
-                MutableText state = NoPlayerNameConfig.hideNametags ? Text.translatable("noplayername.message.off") : Text.translatable("noplayername.message.on");
-
+                Component state = NoPlayerNameConfig.hideNametags ? Component.translatable("noplayername.message.off") : Component.translatable("noplayername.message.on");
                 if (client.player != null) {
-                    client.player.sendMessage(Text.translatable("noplayername.message", state), false);
+                    client.player.sendSystemMessage(Component.translatable("noplayername.message", state));
                 }
             }
+
+            if (screenShotKey.consumeClick()) {
+                this.orignalHideState = NoPlayerNameConfig.hideNametags;
+                NoPlayerNameConfig.hideNametags = true;
+                this.isScreenshotScheduled = true;
+            } else if (this.isScreenshotScheduled) {
+                this.isScreenshotScheduled = false;
+                Screenshot.grab(client.gameDirectory, client.gameRenderer.mainRenderTarget(), (message) -> client.execute(() -> client.showDebugChat(message)));
+                NoPlayerNameConfig.hideNametags = this.orignalHideState;
+            }
+
         });
+    }
+
+    static {
+        toggleKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.noplayername.toggle", Type.KEYSYM, 78, CATEGORY));
+        screenShotKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.noplayername.take_screenshot", Type.KEYSYM, 299, CATEGORY));
     }
 }
